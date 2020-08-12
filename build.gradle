@@ -16,7 +16,7 @@ plugins {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.0.0." + ('git rev-list --count HEAD'.execute().text.trim())
+version = 'git rev-parse HEAD'.execute().text // git commit hash
 group = "org.valkyrienskies.addon"
 archivesBaseName = "vs-control"
 
@@ -43,6 +43,7 @@ repositories {
         name = "DaPorkchop_"
         url = "https://maven.daporkchop.net/"
     }
+    maven { url 'https://jitpack.io' }
     mavenCentral()
 }
 
@@ -55,13 +56,27 @@ configurations {
 
 dependencies {
     // The mod depends on Valkyrien Skies
-    deobfCompile "org.valkyrienskies:valkyrien-skies:1.0.0.1723"
+    // I'm being lazy so I'll just use jitpack for now
+    deobfCompile("org.valkyrienskies:Valkyrien-Skies:4e6736844bf1029bc00ea378566a075dd6f2c815:all") {
+        transitive = false
+    }
+
+    deobfCompile("org.valkyrienskies:Valkyrien-Skies-World:a9f641254cca2fae0f1881739eb9cdad0a0054cb") {
+        transitive = false
+    }
 
     shade "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
+
+    // lombok
+    compileOnly "org.projectlombok:lombok:1.18.10"
+    annotationProcessor "org.projectlombok:lombok:1.18.10"
 }
 
 jar {
     classifier = "unshaded"
+    manifest.attributes(
+            "FMLAT": "vs_control_at.cfg"
+    )
 }
 
 shadowJar {
