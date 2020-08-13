@@ -104,8 +104,8 @@ reobf {
     }
 }
 
-build.dependsOn(reobfJar)
-build.dependsOn(reobfShadowJar)
+tasks.jar.finalizedBy(reobfJar)
+tasks.shadowJar.finalizedBy(reobfShadowJar)
 
 publishing {
     repositories {
