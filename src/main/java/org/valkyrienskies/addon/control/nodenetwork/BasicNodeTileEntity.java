@@ -104,7 +104,12 @@ public abstract class BasicNodeTileEntity extends TileEntity implements IVSNodeP
         if (tileNode.getGraph() == null) {
             return;
         }
-        tileNode.getGraph().addNeighours(tileNode, tileNode.getNeighbours());
+        try {
+            tileNode.getGraph().addNeighours(tileNode, tileNode.getNeighbours());
+        } catch (Exception e) {
+            System.err.println("Node TileEntity error at " + getPos());
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -269,6 +269,11 @@ public class VSNode_TileEntity implements IVSNode {
         for (BlockPos pos : linkedNodesPos) {
             IVSNode node = getVSNode_TileEntity(getNodeWorld(), pos);
             if (node != null) {
+                if (node.getGraph() == null) {
+                    System.err.println("Graph node at " + node.getNodePos() + " was missing a graph! So we added one.");
+                    Graph.integrate(node, Collections.EMPTY_LIST,
+                            (graph) -> new BasicNodeTileEntity.GraphData());
+                }
                 nodesList.add(node);
             }
         }
