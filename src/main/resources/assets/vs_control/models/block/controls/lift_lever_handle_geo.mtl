@@ -1,0 +1,15 @@
+newmtl 03___Default
+illum 4
+Kd 0.500000 0.500000 0.500000
+Ka 0.000000 0.000000 0.000000
+Tf 1.000000 1.000000 1.000000 
+map_Kd vs_control:blocks/controls/texture
+Ni 1.500000
+
+newmtl 02___Default
+illum 4
+Kd 0.588235 0.588235 0.588235
+Ka 0.588235 0.588235 0.588235
+Tf 1.000000 1.000000 1.000000 
+map_Kd vs_control:blocks/controls/textureship
+Ni 1.500000
