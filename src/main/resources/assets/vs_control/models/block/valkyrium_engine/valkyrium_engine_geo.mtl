@@ -1,13 +1,46 @@
 # Blender MTL File: 'None'
-# Material Count: 1
+# Material Count: 4
 
-newmtl Default_OBJ.001
-Ns 225.000000
+newmtl 02___Default
+Ns 0.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
-Ni 1.450000
+Ni 1.500000
 d 1.000000
-illum 2
-map_Kd vs_control:blocks/valkyrium_engine_geo
+illum 1
+map_Kd vs_control:blocks/valkyrium_compressor/handle
+
+newmtl 03___Default
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd vs_control:blocks/valkyrium_compressor/textureshipruest
+
+newmtl 07___Default
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd vs_control:blocks/valkyrium_compressor/darktex
+
+newmtl default
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd vs_control:blocks/valkyrium_compressor/metal
