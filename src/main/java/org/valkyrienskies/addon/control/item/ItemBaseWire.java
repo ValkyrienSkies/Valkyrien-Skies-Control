@@ -16,6 +16,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import org.valkyrienskies.addon.control.ValkyrienSkiesControl;
 import org.valkyrienskies.addon.control.capability.ICapabilityLastRelay;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.nodenetwork.EnumWireType;
 import org.valkyrienskies.addon.control.nodenetwork.IVSNode;
 import org.valkyrienskies.addon.control.nodenetwork.IVSNodeProvider;
@@ -62,7 +63,7 @@ public class ItemBaseWire extends BaseItem {
                     TileEntity lastPosTile = worldIn.getTileEntity(lastPos);
 
                     if (!lastPos.equals(pos) && lastPosTile != null && currentTile != null) {
-                        if (distanceSq < VSConfig.relayWireLength * VSConfig.relayWireLength) {
+                        if (distanceSq < VSControlConfig.relayWireLength * VSControlConfig.relayWireLength) {
                             IVSNode lastPosNode = ((IVSNodeProvider) lastPosTile).getNode();
                             IVSNode currentPosNode = ((IVSNodeProvider) currentTile).getNode();
                             if (lastPosNode != null && currentPosNode != null) {
@@ -78,7 +79,7 @@ public class ItemBaseWire extends BaseItem {
                                     stack.damageItem(1, player);
                                 } else {
                                     player.sendMessage(new TextComponentString(TextFormatting.RED +
-                                        I18n.format("message.vs_control.error_relay_wire_limit", VSConfig.networkRelayLimit)));
+                                        I18n.format("message.vs_control.error_relay_wire_limit", VSControlConfig.networkRelayLimit)));
                                 }
                                 inst.setLastRelay(null);
                             }

@@ -8,6 +8,7 @@ import org.valkyrienskies.addon.control.block.multiblocks.BlockGiantPropellerPar
 import org.valkyrienskies.addon.control.block.multiblocks.BlockRudderPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumCompressorPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumEnginePart;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.mod.common.config.VSConfig;
 
 import net.minecraft.block.Block;
@@ -47,13 +48,13 @@ public class BlocksValkyrienSkiesControl {
         physicsInfuserDummy = registerBlock(new BlockPhysicsInfuserDummy());
 
         basicEngine = registerBlock(new BlockNormalEngine("basic", Material.WOOD,
-            VSConfig.ENGINE_POWER.basicEnginePower, 5.0F));
+                VSControlConfig.ENGINE_POWER.basicEnginePower, 5.0F));
         advancedEngine = registerBlock(new BlockNormalEngine("advanced", Material.ROCK,
-            VSConfig.ENGINE_POWER.advancedEnginePower, 6.0F));
+                VSControlConfig.ENGINE_POWER.advancedEnginePower, 6.0F));
         eliteEngine = registerBlock(new BlockNormalEngine("elite", Material.IRON,
-            VSConfig.ENGINE_POWER.eliteEnginePower, 8.0F));
+                VSControlConfig.ENGINE_POWER.eliteEnginePower, 8.0F));
         ultimateEngine = registerBlock(new BlockNormalEngine("ultimate", Material.GROUND,
-            VSConfig.ENGINE_POWER.ultimateEnginePower, 10.0F));
+                VSControlConfig.ENGINE_POWER.ultimateEnginePower, 10.0F));
         redstoneEngine = registerBlock(new BlockRedstoneEngine());
 
         compactedValkyrium = registerBlock(new BlockCompactedValkyrium());

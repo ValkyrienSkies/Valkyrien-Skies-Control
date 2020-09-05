@@ -1,5 +1,6 @@
 package org.valkyrienskies.addon.control;
 
+import lombok.val;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -27,11 +28,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.registries.GameData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.valkyrienskies.addon.control.block.multiblocks.*;
 import org.valkyrienskies.addon.control.block.torque.TileEntityRotationAxle;
 import org.valkyrienskies.addon.control.capability.ICapabilityLastRelay;
 import org.valkyrienskies.addon.control.capability.ImplCapabilityLastRelay;
 import org.valkyrienskies.addon.control.capability.StorageLastRelay;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.item.ItemPhysicsCore;
 import org.valkyrienskies.addon.control.item.ItemRelayWire;
 import org.valkyrienskies.addon.control.item.ItemVSWrench;
@@ -40,6 +44,7 @@ import org.valkyrienskies.addon.control.network.VSGuiButtonHandler;
 import org.valkyrienskies.addon.control.network.VSGuiButtonMessage;
 import org.valkyrienskies.addon.control.proxy.CommonProxyControl;
 import org.valkyrienskies.addon.control.tileentity.*;
+import org.valkyrienskies.addon.world.ValkyrienSkiesWorld;
 import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
 
 import java.util.ArrayList;
@@ -48,8 +53,8 @@ import java.util.List;
 @Mod(
     name = ValkyrienSkiesControl.MOD_NAME,
     modid = ValkyrienSkiesControl.MOD_ID,
-    version = ValkyrienSkiesControl.MOD_VERSION
-    // dependencies = "required-after:" + ValkyrienSkiesControl.VS_WORLD_MOD_ID
+    version = ValkyrienSkiesControl.MOD_VERSION,
+    dependencies = "required-after:" + ValkyrienSkiesMod.MOD_ID + ";required-after:" + ValkyrienSkiesWorld.MOD_ID + ";"
 )
 @Mod.EventBusSubscriber(modid = ValkyrienSkiesControl.MOD_ID)
 public class ValkyrienSkiesControl {
@@ -61,8 +66,6 @@ public class ValkyrienSkiesControl {
     public static final String MOD_ID = "vs_control";
     public static final String MOD_NAME = "Valkyrien Skies Control";
     public static final String MOD_VERSION = ValkyrienSkiesMod.MOD_VERSION;
-
-    public static final String VS_WORLD_MOD_ID = "vs_world";
 
     public static SimpleNetworkWrapper controlGuiNetwork;
 
@@ -78,6 +81,7 @@ public class ValkyrienSkiesControl {
     @CapabilityInject(ICapabilityLastRelay.class)
     public static final Capability<ICapabilityLastRelay> lastRelayCapability = null;
 
+    private final Logger log = LogManager.getLogger(ValkyrienSkiesControl.class);
     public BlocksValkyrienSkiesControl vsControlBlocks;
     public Item relayWire;
     public Item vanishingWire;
@@ -143,14 +147,10 @@ public class ValkyrienSkiesControl {
             'I', relayWireIngot,
             'S', Items.STICK);
 
-        if (Loader.isModLoaded(VS_WORLD_MOD_ID)) {
-            addVsWorldRecipes();
-        }
+        addVsWorldRecipes();
     }
 
-    @Optional.Method(modid = VS_WORLD_MOD_ID)
     public void addVsWorldRecipes() {
-	    /*
         addShapedRecipe(INSTANCE.vanishingWire, 8,
             "WWW",
             "WVW",
@@ -179,12 +179,13 @@ public class ValkyrienSkiesControl {
             'G', Items.GOLD_INGOT,
             'F', Item.getItemFromBlock(Blocks.PISTON),
             'V', ValkyrienSkiesWorld.INSTANCE.valkyriumCrystal);
-
-	     */
     }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        log.debug("Initializing configuration.");
+        runConfiguration();
+
 		addItems();
 		addBlocks();
         registerNetworks();
@@ -299,5 +300,12 @@ public class ValkyrienSkiesControl {
         controlGuiNetwork = NetworkRegistry.INSTANCE.newSimpleChannel("vs-control");
         controlGuiNetwork.registerMessage(VSGuiButtonHandler.class,
                 VSGuiButtonMessage.class, 1, Side.SERVER);
+    }
+
+    /**
+     * Initializes the configuration - [VSControlConfig]
+     */
+    private void runConfiguration() {
+        VSControlConfig.sync();
     }
 }
