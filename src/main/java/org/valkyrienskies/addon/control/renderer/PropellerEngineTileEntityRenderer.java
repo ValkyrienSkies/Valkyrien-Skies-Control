@@ -25,7 +25,7 @@ public class PropellerEngineTileEntityRenderer extends
             EnumFacing facing = state.getValue(BlockAirshipEngine.FACING);
 
             IBlockState engineRenderState = getRenderState(state);
-            IBlockState propellerRenderState = ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel
+            IBlockState propellerRenderState = ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock
                 .getStateFromMeta(14);
 
             this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
@@ -97,23 +97,23 @@ public class PropellerEngineTileEntityRenderer extends
     private IBlockState getRenderState(IBlockState inWorldState) {
         if (inWorldState.getBlock()
             == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.ultimateEngine) {
-            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(9);
+            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(9);
         }
         if (inWorldState.getBlock()
             == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.redstoneEngine) {
-            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(10);
+            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(10);
         }
         if (inWorldState.getBlock() == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.eliteEngine) {
-            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(11);
+            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(11);
         }
         if (inWorldState.getBlock() == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.basicEngine) {
-            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(12);
+            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(12);
         }
         if (inWorldState.getBlock()
             == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.advancedEngine) {
-            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(13);
+            return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(13);
         }
 
-        return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.shipWheel.getStateFromMeta(9);
+        return ValkyrienSkiesControl.INSTANCE.vsControlBlocks.dummyRenderBlock.getStateFromMeta(9);
     }
 }

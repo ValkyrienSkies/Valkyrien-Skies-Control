@@ -9,7 +9,6 @@ import org.valkyrienskies.addon.control.block.multiblocks.BlockRudderPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumCompressorPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumEnginePart;
 import org.valkyrienskies.addon.control.config.VSControlConfig;
-import org.valkyrienskies.mod.common.config.VSConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -26,7 +25,9 @@ public class BlocksValkyrienSkiesControl {
     public final BlockRedstoneEngine redstoneEngine;
     public final Block compactedValkyrium;
     public final Block shipHelm;
-    public final Block shipWheel;
+    // The blocks only purpose is to load models to be rendered. Its a pretty bad way of rendering things, but whatever
+    // we can fix it later.
+    public final Block dummyRenderBlock;
     public final Block speedTelegraph;
     public final Block dummyTelegraph;
     public final Block networkRelay;
@@ -59,7 +60,7 @@ public class BlocksValkyrienSkiesControl {
 
         compactedValkyrium = registerBlock(new BlockCompactedValkyrium());
         shipHelm = registerBlock(new BlockShipHelm());
-        shipWheel = registerBlock(new BlockShipWheel());
+        dummyRenderBlock = registerBlock(new BlockShipWheel());
         speedTelegraph = registerBlock(new BlockSpeedTelegraph());
         dummyTelegraph = registerBlock(new BlockDummyTelegraph());
 
