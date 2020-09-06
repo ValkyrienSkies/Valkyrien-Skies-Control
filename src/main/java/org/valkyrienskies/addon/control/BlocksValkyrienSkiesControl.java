@@ -49,13 +49,13 @@ public class BlocksValkyrienSkiesControl {
         physicsInfuserDummy = registerBlock(new BlockPhysicsInfuserDummy());
 
         basicEngine = registerBlock(new BlockNormalEngine("basic", Material.WOOD,
-                VSControlConfig.ENGINE_POWER.basicEnginePower, 5.0F));
+                VSControlConfig.ENGINE_THRUST.basicEnginePower, 5.0F));
         advancedEngine = registerBlock(new BlockNormalEngine("advanced", Material.ROCK,
-                VSControlConfig.ENGINE_POWER.advancedEnginePower, 6.0F));
+                VSControlConfig.ENGINE_THRUST.advancedEnginePower, 6.0F));
         eliteEngine = registerBlock(new BlockNormalEngine("elite", Material.IRON,
-                VSControlConfig.ENGINE_POWER.eliteEnginePower, 8.0F));
+                VSControlConfig.ENGINE_THRUST.eliteEnginePower, 8.0F));
         ultimateEngine = registerBlock(new BlockNormalEngine("ultimate", Material.GROUND,
-                VSControlConfig.ENGINE_POWER.ultimateEnginePower, 10.0F));
+                VSControlConfig.ENGINE_THRUST.ultimateEnginePower, 10.0F));
         redstoneEngine = registerBlock(new BlockRedstoneEngine());
 
         compactedValkyrium = registerBlock(new BlockCompactedValkyrium());

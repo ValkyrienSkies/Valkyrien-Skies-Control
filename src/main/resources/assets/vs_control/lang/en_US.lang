@@ -112,3 +112,35 @@ gui.stop_align_ship=Stop Alignment
 ## Not Yet Implemented
 tile.lift_valve.name=Lift Valve
 tooltip.vs_control.lift_valve=Not yet implemented.
+
+
+# Config (Remember to update VSControlConfig after any changes are made here)
+vs_control.general.wrenchmodeless=Disable Wrench Modes
+vs_control.general.wrenchmodeless.tooltip=Makes wrench toggle a multiblock’s constructed state, removes modes.
+
+vs_control.general.networkrelaylimit=Network Relay Connections Limit
+vs_control.general.networkrelaylimit.tooltip=How many components or relays can be connected to a Network Relay block, default is 8.
+
+vs_control.general.relaywirelength=Relay Wire Max Length
+vs_control.general.relaywirelength.tooltip=How long a single relay wire can extend. Default is 8 meters.
+
+vs_control.general.compactedvalkyriumlift=Compacted Valkyrium Upwards Force
+vs_control.general.compactedvalkyriumlift.tooltip=How much upwards force each block applies. Default is 200000 Newtons.
+
+vs_control.general.engine_thrust=Engine Thrust Settings
+vs_control.general.engine_thrust.tooltip=Set the thrust force of engine blocks. Engines blocks must be replaced after changes are made.
+
+vs_control.general.engine_thrust.basicenginepower=Basic Engine Thrust
+vs_control.general.engine_thrust.basicenginepower.tooltip=
+
+vs_control.general.engine_thrust.advancedenginepower=Advanced Engine Thrust
+vs_control.general.engine_thrust.advancedenginepower.tooltip=
+
+vs_control.general.engine_thrust.eliteenginepower=Elite Engine Thrust
+vs_control.general.engine_thrust.eliteenginepower.tooltip=
+
+vs_control.general.engine_thrust.ultimateenginepower=Ultimate Engine Thrust
+vs_control.general.engine_thrust.ultimateenginepower.tooltip=
+
+vs_control.general.engine_thrust.redstoneenginepower=Redstone Engine Thrust
+vs_control.general.engine_thrust.redstoneenginepower.tooltip=
