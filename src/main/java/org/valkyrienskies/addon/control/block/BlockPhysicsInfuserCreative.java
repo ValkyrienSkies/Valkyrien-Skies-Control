@@ -22,8 +22,8 @@ public class BlockPhysicsInfuserCreative extends BlockPhysicsInfuser {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip,
         ITooltipFlag flagIn) {
-        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.valkyrienskies.physics_infuser_creative_1"));
-        tooltip.add(TextFormatting.RED + "" + TextFormatting.ITALIC + I18n.format("tooltip.valkyrienskies.physics_infuser_creative_2"));
+        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.physics_infuser_creative_1"));
+        tooltip.add(TextFormatting.RED + "" + TextFormatting.ITALIC + I18n.format("tooltip.vs_control.physics_infuser_creative_2"));
     }
 
 }

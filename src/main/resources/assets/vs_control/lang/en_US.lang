@@ -98,6 +98,9 @@ tooltip.vs_control.gyroscope_stabilizer=This block passively provides a torque t
 tile.gyroscope_dampener.name=Ship Gyroscope Dampener
 tooltip.vs_control.gyroscope_dampener=This block passively provides a torque to prevent the ship from rocking.
 
+tooltip.vs_control.wrench.switched.construct=Wrench in construct mode
+tooltip.vs_control.wrench.switched.deconstruct=Wrench in deconstruct mode
+
 
 # Gui
 gui.physics_infuser=Physics Infuser

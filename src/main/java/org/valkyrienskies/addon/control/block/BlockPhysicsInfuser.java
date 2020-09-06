@@ -116,7 +116,7 @@ public class BlockPhysicsInfuser extends BlockVSDirectional implements ITileEnti
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip,
         ITooltipFlag flagIn) {
-        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.valkyrienskies." + this.name));
+        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control." + this.name));
     }
 
     @Override
