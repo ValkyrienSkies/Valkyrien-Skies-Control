@@ -43,6 +43,10 @@ repositories {
         name = "DaPorkchop_"
         url = "https://maven.daporkchop.net/"
     }
+    maven {
+        name = "Dogforce Games"
+        url = "http://dogforce-games.com/maven/"
+    }
     maven { url 'https://jitpack.io' }
     mavenCentral()
 }
@@ -64,6 +68,9 @@ dependencies {
     deobfCompile("org.valkyrienskies:Valkyrien-Skies-World:d093c553ef0527052c28c9e36654a6c20831d1b4") {
         transitive = false
     }
+
+    // GraphLib is used by node tile entities to create a graph of nodes
+    shade "gigaherz.graph:GraphLib:1.4.0"
 
     shade "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
 
