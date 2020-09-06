@@ -130,17 +130,17 @@ vs_control.general.compactedvalkyriumlift.tooltip=How much upwards force each bl
 vs_control.general.engine_thrust=Engine Thrust Settings
 vs_control.general.engine_thrust.tooltip=Set the thrust force of engine blocks. Engines blocks must be replaced after changes are made.
 
-vs_control.general.engine_thrust.basicenginepower=Basic Engine Thrust
-vs_control.general.engine_thrust.basicenginepower.tooltip=
+vs_control.general.engine_thrust.basicenginethrust=Basic Engine Thrust
+vs_control.general.engine_thrust.basicenginethrust.tooltip=
 
-vs_control.general.engine_thrust.advancedenginepower=Advanced Engine Thrust
-vs_control.general.engine_thrust.advancedenginepower.tooltip=
+vs_control.general.engine_thrust.advancedenginethrust=Advanced Engine Thrust
+vs_control.general.engine_thrust.advancedenginethrust.tooltip=
 
-vs_control.general.engine_thrust.eliteenginepower=Elite Engine Thrust
-vs_control.general.engine_thrust.eliteenginepower.tooltip=
+vs_control.general.engine_thrust.eliteenginethrust=Elite Engine Thrust
+vs_control.general.engine_thrust.eliteenginethrust.tooltip=
 
-vs_control.general.engine_thrust.ultimateenginepower=Ultimate Engine Thrust
-vs_control.general.engine_thrust.ultimateenginepower.tooltip=
+vs_control.general.engine_thrust.ultimateenginethrust=Ultimate Engine Thrust
+vs_control.general.engine_thrust.ultimateenginethrust.tooltip=
 
-vs_control.general.engine_thrust.redstoneenginepower=Redstone Engine Thrust
-vs_control.general.engine_thrust.redstoneenginepower.tooltip=
+vs_control.general.engine_thrust.redstoneenginethrust=Redstone Engine Thrust
+vs_control.general.engine_thrust.redstoneenginethrust.tooltip=

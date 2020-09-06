@@ -6,7 +6,7 @@ import org.valkyrienskies.addon.control.config.VSControlConfig;
 public class BlockRedstoneEngine extends BlockAirshipEngineLore {
 
     public BlockRedstoneEngine() {
-        super("redstone", Material.REDSTONE_LIGHT, VSControlConfig.ENGINE_THRUST.redstoneEnginePower, 7.0F);
+        super("redstone", Material.REDSTONE_LIGHT, VSControlConfig.ENGINE_THRUST.redstoneEngineThrust, 7.0F);
     }
 
     @Override
