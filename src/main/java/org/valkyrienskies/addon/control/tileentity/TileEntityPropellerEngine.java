@@ -1,8 +1,11 @@
 package org.valkyrienskies.addon.control.tileentity;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import org.joml.Vector3dc;
+import org.valkyrienskies.addon.control.ValkyrienSkiesControl;
 import org.valkyrienskies.addon.control.nodenetwork.BasicForceNodeTileEntity;
+import org.valkyrienskies.mod.common.ships.ship_world.PhysicsObject;
 
 public class TileEntityPropellerEngine extends BasicForceNodeTileEntity {
 
@@ -61,5 +64,23 @@ public class TileEntityPropellerEngine extends BasicForceNodeTileEntity {
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         compound.setDouble("propellerAngularVelocity", propellerAngularVelocity);
         return super.writeToNBT(compound);
+    }
+
+    @Override
+    public double getThrustMagnitude(PhysicsObject physicsObject) {
+        // region Support for redstone engines
+        try {
+            // We're reading the world state from the physics thread, so use a try-catch block just to be safe.
+            final IBlockState blockState = getWorld().getBlockState(getPos());
+            if (blockState.getBlock() == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.redstoneEngine) {
+                // Multiply the thrust by the redstone power
+                final int redstonePower = getWorld().getRedstonePowerFromNeighbors(getPos());
+                return redstonePower * this.getMaxThrust() * this.getThrustMultiplierGoal();
+            }
+        } catch (final Exception exception) {
+            exception.printStackTrace();
+        }
+        // endregion
+        return this.getMaxThrust() * this.getThrustMultiplierGoal();
     }
 }
