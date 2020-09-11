@@ -21,6 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.tileentity.TileEntityNetworkRelay;
 import org.valkyrienskies.addon.control.util.BaseBlock;
 import org.valkyrienskies.mod.common.config.VSConfig;
@@ -169,7 +170,7 @@ public class BlockNetworkRelay extends BaseBlock implements ITileEntityProvider 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player,
         List<String> itemInformation, ITooltipFlag advanced) {
-        itemInformation.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.network_relay", VSConfig.networkRelayLimit));
+        itemInformation.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.network_relay", VSControlConfig.networkRelayLimit));
     }
 
     @Override

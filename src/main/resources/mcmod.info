@@ -2,13 +2,13 @@
   {
     "modid": "vs_control",
     "name": "Valkyrien Skies Control",
-    "description": "Adds a set of Items and Blocks allowing for more advanced Airship construction",
+    "description": "Adds new items and blocks to create and control ships.",
     "version": "${version}",
     "logoFile": "",
-    "parent": "valkyrienskies",
     "screenshots": [],
     "dependencies": [
-      "valkyrienskies"
+      "valkyrienskies",
+      "vs_world"
     ]
   }
 ]

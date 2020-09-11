@@ -43,6 +43,10 @@ repositories {
         name = "DaPorkchop_"
         url = "https://maven.daporkchop.net/"
     }
+    maven {
+        name = "Dogforce Games"
+        url = "http://dogforce-games.com/maven/"
+    }
     maven { url 'https://jitpack.io' }
     mavenCentral()
 }
@@ -57,13 +61,16 @@ configurations {
 dependencies {
     // The mod depends on Valkyrien Skies
     // I'm being lazy so I'll just use jitpack for now
-    deobfCompile("org.valkyrienskies:Valkyrien-Skies:4e6736844bf1029bc00ea378566a075dd6f2c815:all") {
+    deobfCompile("org.valkyrienskies:Valkyrien-Skies:43248b11cb2926ae7d21124d1f9a9b6385c9796d:all") {
         transitive = false
     }
 
-    deobfCompile("org.valkyrienskies:Valkyrien-Skies-World:a9f641254cca2fae0f1881739eb9cdad0a0054cb") {
+    deobfCompile("org.valkyrienskies:Valkyrien-Skies-World:d093c553ef0527052c28c9e36654a6c20831d1b4") {
         transitive = false
     }
+
+    // GraphLib is used by node tile entities to create a graph of nodes
+    shade "gigaherz.graph:GraphLib:1.4.0"
 
     shade "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
 

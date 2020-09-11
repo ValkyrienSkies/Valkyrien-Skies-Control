@@ -24,6 +24,7 @@ import org.valkyrienskies.addon.control.block.multiblocks.TileEntityGiantPropell
 import org.valkyrienskies.addon.control.block.multiblocks.TileEntityRudderPart;
 import org.valkyrienskies.addon.control.block.multiblocks.TileEntityValkyriumCompressorPart;
 import org.valkyrienskies.addon.control.block.multiblocks.TileEntityValkyriumEnginePart;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.tileentity.TileEntityGearbox;
 import org.valkyrienskies.addon.control.util.BaseItem;
 import org.valkyrienskies.mod.common.config.VSConfig;
@@ -40,7 +41,7 @@ public class ItemVSWrench extends BaseItem {
     public void addInformation(ItemStack stack, @Nullable World player,
         List<String> itemInformation,
         ITooltipFlag advanced) {
-        if (VSConfig.wrenchModeless) {
+        if (VSControlConfig.wrenchModeless) {
             itemInformation.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.wrench_toggle"));
         } else {
             itemInformation.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.wrench." + this.mode.toString()));
@@ -58,7 +59,7 @@ public class ItemVSWrench extends BaseItem {
             return EnumActionResult.SUCCESS;
         }
 
-        if (player.isSneaking() && !VSConfig.wrenchModeless) {
+        if (player.isSneaking() && !VSControlConfig.wrenchModeless) {
             this.mode = EnumWrenchMode.values()[(this.mode.ordinal() + 1) % EnumWrenchMode.values().length]; // Switch to the next mode
             player.sendMessage(new TextComponentString(
                 TextFormatting.BLUE + I18n.format("tooltip.vs_control.wrench.switched." + this.mode.toString()))); // Say in chat
@@ -66,8 +67,8 @@ public class ItemVSWrench extends BaseItem {
         }
 
         TileEntity blockTile = worldIn.getTileEntity(pos);
-        boolean shouldConstruct = this.mode == EnumWrenchMode.CONSTRUCT || VSConfig.wrenchModeless;
-        boolean shouldDeconstruct = this.mode == EnumWrenchMode.DECONSTRUCT || VSConfig.wrenchModeless;
+        boolean shouldConstruct = this.mode == EnumWrenchMode.CONSTRUCT || VSControlConfig.wrenchModeless;
+        boolean shouldDeconstruct = this.mode == EnumWrenchMode.DECONSTRUCT || VSControlConfig.wrenchModeless;
         if (blockTile instanceof ITileEntityMultiblockPart) {
             ITileEntityMultiblockPart part = (ITileEntityMultiblockPart) blockTile;
             shouldConstruct = shouldConstruct && !part.isPartOfAssembledMultiblock();

@@ -10,6 +10,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import org.joml.Vector3d;
 import org.joml.Vector3dc;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.util.BaseBlock;
 import org.valkyrienskies.mod.common.block.IBlockForceProvider;
 import org.valkyrienskies.mod.common.config.VSConfig;
@@ -32,7 +33,7 @@ public class BlockCompactedValkyrium extends BaseBlock implements IBlockForcePro
     public Vector3dc getBlockForceInShipSpace(World world, BlockPos pos, IBlockState state,
                                               PhysicsObject physicsObject, double secondsToApply) {
         // TODO: Shouldn't this depend on the gravity vector?
-        return new Vector3d(0, VSConfig.compactedValkyriumLift * secondsToApply, 0);
+        return new Vector3d(0, VSControlConfig.compactedValkyriumLift * secondsToApply, 0);
     }
 
     /**
@@ -49,7 +50,7 @@ public class BlockCompactedValkyrium extends BaseBlock implements IBlockForcePro
         List<String> itemInformation,
         ITooltipFlag advanced) {
         itemInformation.add(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "" + TextFormatting.BOLD +
-            I18n.format("tooltip.vs_control.compacted_valkyrium", VSConfig.compactedValkyriumLift));
+            I18n.format("tooltip.vs_control.compacted_valkyrium", VSControlConfig.compactedValkyriumLift));
     }
 
 }

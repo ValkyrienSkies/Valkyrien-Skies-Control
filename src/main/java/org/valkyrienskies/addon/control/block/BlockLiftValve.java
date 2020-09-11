@@ -17,7 +17,7 @@ import org.valkyrienskies.addon.control.util.BaseBlock;
 public class BlockLiftValve extends BaseBlock implements ITileEntityProvider {
 
     public BlockLiftValve() {
-        super("lift_valve", Material.IRON, 0.0F, true);
+        super("lift_valve", Material.IRON, 0.0F, false);
         this.setHardness(7.0F);
     }
 

@@ -1,6 +1,7 @@
 package org.valkyrienskies.addon.control.tileentity;
 
 import net.minecraft.util.math.AxisAlignedBB;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.nodenetwork.BasicNodeTileEntity;
 import org.valkyrienskies.mod.common.config.VSConfig;
 
@@ -12,7 +13,7 @@ public class TileEntityNetworkRelay extends BasicNodeTileEntity {
 
     @Override
     protected int getMaximumConnections() {
-        return VSConfig.networkRelayLimit;
+        return VSControlConfig.networkRelayLimit;
     }
 
     // TODO: Not the best solution, but it works for now.

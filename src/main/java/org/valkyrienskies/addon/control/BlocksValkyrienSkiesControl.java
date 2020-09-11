@@ -8,7 +8,7 @@ import org.valkyrienskies.addon.control.block.multiblocks.BlockGiantPropellerPar
 import org.valkyrienskies.addon.control.block.multiblocks.BlockRudderPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumCompressorPart;
 import org.valkyrienskies.addon.control.block.multiblocks.BlockValkyriumEnginePart;
-import org.valkyrienskies.mod.common.config.VSConfig;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,9 @@ public class BlocksValkyrienSkiesControl {
     public final BlockRedstoneEngine redstoneEngine;
     public final Block compactedValkyrium;
     public final Block shipHelm;
-    public final Block shipWheel;
+    // The blocks only purpose is to load models to be rendered. Its a pretty bad way of rendering things, but whatever
+    // we can fix it later.
+    public final Block dummyRenderBlock;
     public final Block speedTelegraph;
     public final Block dummyTelegraph;
     public final Block networkRelay;
@@ -47,18 +49,18 @@ public class BlocksValkyrienSkiesControl {
         physicsInfuserDummy = registerBlock(new BlockPhysicsInfuserDummy());
 
         basicEngine = registerBlock(new BlockNormalEngine("basic", Material.WOOD,
-            VSConfig.ENGINE_POWER.basicEnginePower, 5.0F));
+                VSControlConfig.ENGINE_THRUST.basicEngineThrust, 5.0F));
         advancedEngine = registerBlock(new BlockNormalEngine("advanced", Material.ROCK,
-            VSConfig.ENGINE_POWER.advancedEnginePower, 6.0F));
+                VSControlConfig.ENGINE_THRUST.advancedEngineThrust, 6.0F));
         eliteEngine = registerBlock(new BlockNormalEngine("elite", Material.IRON,
-            VSConfig.ENGINE_POWER.eliteEnginePower, 8.0F));
+                VSControlConfig.ENGINE_THRUST.eliteEngineThrust, 8.0F));
         ultimateEngine = registerBlock(new BlockNormalEngine("ultimate", Material.GROUND,
-            VSConfig.ENGINE_POWER.ultimateEnginePower, 10.0F));
+                VSControlConfig.ENGINE_THRUST.ultimateEngineThrust, 10.0F));
         redstoneEngine = registerBlock(new BlockRedstoneEngine());
 
         compactedValkyrium = registerBlock(new BlockCompactedValkyrium());
         shipHelm = registerBlock(new BlockShipHelm());
-        shipWheel = registerBlock(new BlockShipWheel());
+        dummyRenderBlock = registerBlock(new BlockShipWheel());
         speedTelegraph = registerBlock(new BlockSpeedTelegraph());
         dummyTelegraph = registerBlock(new BlockDummyTelegraph());
 
