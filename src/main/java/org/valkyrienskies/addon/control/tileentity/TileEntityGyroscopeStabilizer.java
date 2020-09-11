@@ -20,7 +20,7 @@ public class TileEntityGyroscopeStabilizer extends TileEntity {
             .transformDirection(shipLevelNormal, TransformType.SUBSPACE_TO_GLOBAL);
         Vector3d torqueDir = GRAVITY_UP.cross(shipLevelNormal, new Vector3d());
 
-        if (torqueDir.lengthSquared() < .01) {
+        if (torqueDir.lengthSquared() < .0000000001) {
             // The ship is already level, don't try to divide by 0
             return new Vector3d();
         }
