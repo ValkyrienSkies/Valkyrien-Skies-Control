@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "ICI",
+        "CDC",
+        "ICI"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": {
+            "item": "minecraft:slime_ball"
+        },
+        "D": {
+            "item": "minecraft:obsidian"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:gyroscope_dampener",
+        "count": 4
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I I",
+        " DI",
+        "I I"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "D": {
+            "item": "minecraft:sticky_piston"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:gearbox",
+        "count": 1
+    }
+}

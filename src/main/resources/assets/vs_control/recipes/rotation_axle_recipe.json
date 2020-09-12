@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "D"
+    ],
+    
+    "key":
+    {
+        "D": {
+            "item": "minecraft:iron_bars"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:rotation_axle",
+        "count": 1
+    }
+}

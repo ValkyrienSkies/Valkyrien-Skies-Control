@@ -1,0 +1,49 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "DDD",
+        "DGD",
+        "GGG"
+    ],
+    
+    "key":
+    {
+        "G": [
+            {
+                "item": "minecraft:planks",
+                "data": 0
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 1
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 2
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 3
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 4
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 5
+            }
+        ],
+        "D": {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:ship_helm",
+        "count": 1
+    }
+}

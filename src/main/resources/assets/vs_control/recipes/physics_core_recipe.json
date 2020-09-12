@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "GDG",
+        "DLD",
+        "GDG"
+    ],
+    
+    "key":
+    {
+        "G": {
+            "item": "minecraft:iron_ingot"
+        },
+        "L": {
+            "item": "minecraft:ender_pearl"
+        },
+        "D": {
+            "item": "vs_world:valkyrium_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:physics_core",
+        "count": 1
+    }
+}

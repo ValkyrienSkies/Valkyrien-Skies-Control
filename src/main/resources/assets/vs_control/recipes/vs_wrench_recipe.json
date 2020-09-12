@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "DD ",
+        " DD",
+        "DD "
+    ],
+    
+    "key":
+    {
+        "D": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:vs_wrench",
+        "count": 1
+    }
+}

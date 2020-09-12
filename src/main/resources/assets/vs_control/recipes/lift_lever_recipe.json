@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "IDI",
+        "ICI",
+        "ICI"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": {
+            "item": "minecraft:redstone"
+        },
+        "D": {
+            "item": "minecraft:lever"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:lift_lever",
+        "count": 1
+    }
+}
