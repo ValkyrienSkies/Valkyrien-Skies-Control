@@ -1,12 +1,11 @@
 package org.valkyrienskies.addon.control.fuel;
 
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.mod.common.ships.ship_world.PhysicsObject;
 
 import javax.annotation.Nonnull;
 
 public interface IValkyriumEngine {
-
-    double MAX_THRUST_HEIGHT = 500;
 
     /**
      * The behavior of this efficiency curve is designed to act the same as a spring with natural
@@ -18,7 +17,7 @@ public interface IValkyriumEngine {
      * @return A number between 0 and 1.
      */
     static double getValkyriumEfficiencyFromHeight(double yHeight) {
-        return Math.min(1, Math.max(0, 1 - yHeight / MAX_THRUST_HEIGHT));
+        return Math.min(1, Math.max(0, 1 - yHeight / VSControlConfig.compressorMaxHeight));
     }
 
     /**

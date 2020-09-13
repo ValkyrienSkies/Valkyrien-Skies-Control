@@ -2,6 +2,7 @@ package org.valkyrienskies.addon.control;
 
 import lombok.val;
 import net.minecraft.block.Block;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -46,6 +48,7 @@ import org.valkyrienskies.addon.control.proxy.CommonProxyControl;
 import org.valkyrienskies.addon.control.tileentity.*;
 import org.valkyrienskies.addon.world.ValkyrienSkiesWorld;
 import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
+import org.valkyrienskies.mod.common.command.config.VSConfigCommandBase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -190,6 +193,12 @@ public class ValkyrienSkiesControl {
 		addBlocks();
         registerNetworks();
         proxy.preInit(event);
+    }
+
+    @Mod.EventHandler
+    public void serverStart(FMLServerStartingEvent event) {
+	    ServerCommandManager manager = (ServerCommandManager) event.getServer().getCommandManager();
+	    manager.registerCommand(new VSConfigCommandBase("vscontrolconfig", VSControlConfig.class));
     }
 
     @Mod.EventHandler

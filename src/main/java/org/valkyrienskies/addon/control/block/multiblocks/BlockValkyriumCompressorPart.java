@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import org.joml.Vector3dc;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.addon.control.util.BaseBlock;
 import org.valkyrienskies.mod.common.block.IBlockForceProvider;
 import org.valkyrienskies.mod.common.ships.ship_world.PhysicsObject;
@@ -21,9 +22,6 @@ import java.util.List;
 
 public class BlockValkyriumCompressorPart extends BaseBlock implements ITileEntityProvider,
     IBlockForceProvider {
-
-    // The maximum thrust in newtons that each compressor block can provide.
-    public static final double COMPRESSOR_PART_MAX_THRUST = 1300000;
 
     public BlockValkyriumCompressorPart() {
         super("valkyrium_compressor_part", Material.IRON, 0.0F, true);
@@ -41,7 +39,7 @@ public class BlockValkyriumCompressorPart extends BaseBlock implements ITileEnti
 
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityValkyriumCompressorPart(COMPRESSOR_PART_MAX_THRUST);
+        return new TileEntityValkyriumCompressorPart(VSControlConfig.ENGINE_THRUST.compressorMaxThrust);
     }
 
     @Override

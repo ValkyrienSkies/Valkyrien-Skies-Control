@@ -4,13 +4,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import org.joml.Vector3d;
 import org.joml.Vector3dc;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.mod.common.physics.PhysicsCalculations;
 import valkyrienwarfare.api.TransformType;
 
 public class TileEntityGyroscopeStabilizer extends TileEntity {
 
-    // Up to 15,000,000 newton-meters of torque generated.
-    public static final double MAXIMUM_TORQUE = 15000000;
     // The direction we are want to align to.
     private static final Vector3dc GRAVITY_UP = new Vector3d(0, 1, 0);
 
@@ -34,7 +33,7 @@ public class TileEntityGyroscopeStabilizer extends TileEntity {
 
         // System.out.println(angleBetween);
 
-        return torqueDir.mul(MAXIMUM_TORQUE * torquePowerFactor * physicsCalculations
+        return torqueDir.mul(VSControlConfig.gyroscopeMaxTorque * torquePowerFactor * physicsCalculations
             .getPhysicsTimeDeltaPerPhysTick() * -1D);
     }
 
