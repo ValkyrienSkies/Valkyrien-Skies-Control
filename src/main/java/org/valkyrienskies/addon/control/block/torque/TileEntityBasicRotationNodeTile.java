@@ -71,15 +71,10 @@ public class TileEntityBasicRotationNodeTile extends BasicNodeTileEntity impleme
         } else {
             if (this.firstUpdate || !rotationNode.isInitialized()) {
                 // Inject the rotation node into the physics world.
-                Optional<PhysicsObject> physicsObjectOptional = ValkyrienUtils
-                    .getPhysoManagingBlock(getWorld(), getPos());
-                IRotationNodeWorld nodeWorld;
-                if (physicsObjectOptional.isPresent()) {
-                    nodeWorld = ValkyrienSkiesControlUtil
-                        .getRotationWorldFromShip(physicsObjectOptional.get());
-                } else {
-                    nodeWorld = ValkyrienSkiesControlUtil.getRotationWorldFromWorld(getWorld());
-                }
+                IRotationNodeWorld nodeWorld = ValkyrienUtils.getPhysoManagingBlock(getWorld(), getPos())
+                        .map(ValkyrienSkiesControlUtil::getRotationWorldFromShip)
+                        .orElseGet(() -> ValkyrienSkiesControlUtil.getRotationWorldFromWorld(getWorld()));
+
                 rotationNode.markInitialized();
                 nodeWorld.enqueueTaskOntoWorld(
                     () -> nodeWorld.setNodeFromPos(getPos(), rotationNode));
