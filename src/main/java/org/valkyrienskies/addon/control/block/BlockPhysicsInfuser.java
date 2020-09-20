@@ -1,8 +1,6 @@
 package org.valkyrienskies.addon.control.block;
 
-import java.util.List;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import lombok.Getter;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -27,25 +25,29 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import org.valkyrienskies.addon.control.ValkyrienSkiesControl;
 import org.valkyrienskies.addon.control.gui.VS_Gui_Enum;
-import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
-import org.valkyrienskies.addon.control.util.BlockVSDirectional;
-import org.valkyrienskies.mod.common.ships.block_relocation.DetectorManager;
 import org.valkyrienskies.addon.control.tileentity.TileEntityPhysicsInfuser;
+import org.valkyrienskies.addon.control.util.BlockVSDirectional;
+import org.valkyrienskies.mod.common.ships.block_relocation.BlockFinder;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class BlockPhysicsInfuser extends BlockVSDirectional implements ITileEntityProvider {
 
     public static final PropertyBool INFUSER_LIGHT_ON = PropertyBool.create("infuser_light_on");
+	@Getter
+    private final BlockFinder.BlockFinderType blockFinderType;
 
-	protected String name;
-
-    int shipSpawnDetectorID;
-
-    public BlockPhysicsInfuser(String name) {
+    protected BlockPhysicsInfuser(final String name, final BlockFinder.BlockFinderType blockFinderType) {
         super(name, Material.WOOD, 0.0F, true);
-		this.name = name;
-        shipSpawnDetectorID = DetectorManager.DetectorIDs.ShipSpawnerGeneral.ordinal();
+        this.blockFinderType = blockFinderType;
+    }
+
+    public BlockPhysicsInfuser(final String name) {
+        this(name, BlockFinder.BlockFinderType.FIND_ALLOWED_BLOCKS);
     }
 
     @Override
@@ -116,7 +118,7 @@ public class BlockPhysicsInfuser extends BlockVSDirectional implements ITileEnti
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip,
         ITooltipFlag flagIn) {
-        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control." + this.name));
+        tooltip.add(TextFormatting.BLUE + I18n.format("tooltip.vs_control.physics_infuser"));
     }
 
     @Override

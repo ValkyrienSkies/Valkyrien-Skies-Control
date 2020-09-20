@@ -29,6 +29,7 @@ import org.valkyrienskies.addon.control.gui.IVSTileGui;
 import org.valkyrienskies.addon.control.network.VSGuiButtonMessage;
 import org.valkyrienskies.mod.common.network.VSNetwork;
 import org.valkyrienskies.mod.common.ships.ShipData;
+import org.valkyrienskies.mod.common.ships.block_relocation.BlockFinder;
 import org.valkyrienskies.mod.common.ships.block_relocation.IRelocationAwareTile;
 import org.valkyrienskies.mod.common.ships.chunk_claims.ShipChunkAllocator;
 import org.valkyrienskies.mod.common.ships.ship_world.PhysicsObject;
@@ -78,11 +79,17 @@ public class TileEntityPhysicsInfuser extends TileEntity implements ITickable, I
     public void update() {
         // Check if we have to create a ship
         if (!getWorld().isRemote) {
-            Optional<PhysicsObject> parentShip = ValkyrienUtils
+            final Optional<PhysicsObject> parentShip = ValkyrienUtils
                 .getPhysoManagingBlock(getWorld(), getPos());
 
             // Update the blockstate lighting
-            IBlockState infuserState = getWorld().getBlockState(getPos());
+            final IBlockState infuserState = getWorld().getBlockState(getPos());
+            final Block infuserBlock = infuserState.getBlock();
+            if (!(infuserBlock instanceof BlockPhysicsInfuser)) {
+                System.err.println("Infuser block wasn't a physics infuser block?");
+                return;
+            }
+            final BlockFinder.BlockFinderType blockFinderType = ((BlockPhysicsInfuser) infuserBlock).getBlockFinderType();
             if (infuserState.getBlock() == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.physicsInfuser) {
                 if (isPhysicsEnabled() && canMaintainShip()) {
                     if (!infuserState.getValue(BlockPhysicsInfuser.INFUSER_LIGHT_ON)) {
@@ -104,7 +111,7 @@ public class TileEntityPhysicsInfuser extends TileEntity implements ITickable, I
                 // Make sure we don't try to create a ship when we're already in ship space.
                 if (!ShipChunkAllocator.isBlockInShipyard(getPos())) {
                     try {
-                        ValkyrienUtils.assembleShipAsOrderedByPlayer(getWorld(), null, getPos());
+                        ValkyrienUtils.assembleShipAsOrderedByPlayer(getWorld(), null, getPos(), blockFinderType);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

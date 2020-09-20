@@ -58,8 +58,7 @@ public class BlockPhysicsInfuserDummy extends BlockVSDirectional {
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         BlockPos parentPos = getParentPos(state, pos);
         super.breakBlock(worldIn, pos, state);
-        if (worldIn.getBlockState(parentPos)
-            .getBlock() == ValkyrienSkiesControl.INSTANCE.vsControlBlocks.physicsInfuser) {
+        if (worldIn.getBlockState(parentPos).getBlock() instanceof BlockPhysicsInfuser) {
             worldIn.setBlockToAir(parentPos);
         }
     }
