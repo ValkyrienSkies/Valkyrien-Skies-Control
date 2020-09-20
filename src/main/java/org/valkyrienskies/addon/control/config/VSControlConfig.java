@@ -60,27 +60,27 @@ public class VSControlConfig extends VSConfigTemplate {
 
         @Config.RequiresMcRestart
         @Config.Name("Basic Engine Thrust")
-        public double basicEngineThrust = 2000;
+        public double basicEngineThrust = 100000;
 
         @Config.RequiresMcRestart
         @Config.Name("Advanced Engine Thrust")
-        public double advancedEngineThrust = 5000;
+        public double advancedEngineThrust = 250000;
 
         @Config.RequiresMcRestart
         @Config.Name("Elite Engine Thrust")
-        public double eliteEngineThrust = 10000;
+        public double eliteEngineThrust = 500000;
 
         @Config.RequiresMcRestart
         @Config.Name("Ultimate Engine Thrust")
-        public double ultimateEngineThrust = 20000;
+        public double ultimateEngineThrust = 1000000;
 
         @Config.RequiresMcRestart
         @Config.Name("Redstone Engine Thrust")
-        public double redstoneEngineThrust = 50000;
+        public double redstoneEngineThrust = 62500;
 
         @Config.RequiresMcRestart
         @Config.Name("Valkyrium Compressor Thrust")
-        public double compressorMaxThrust = 1300000;
+        public double compressorMaxThrust = 2000000;
 
     }
 
