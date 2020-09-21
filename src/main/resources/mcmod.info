@@ -4,7 +4,8 @@
     "name": "Valkyrien Skies Control",
     "description": "Adds new items and blocks to create and control ships.",
     "version": "${version}",
-    "logoFile": "",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/valkyrien-skies-control",
+    "logoFile": "vs_logo.png",
     "screenshots": [],
     "dependencies": [
       "valkyrienskies",
