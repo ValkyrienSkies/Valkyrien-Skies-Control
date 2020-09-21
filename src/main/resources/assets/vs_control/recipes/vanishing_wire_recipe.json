@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "III",
+        "ICI",
+        "III"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "vs_control:relay_wire"
+        },
+        "C": {
+            "item": "vs_world:valkyrium_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:vanishing_wire",
+        "count": 8
+    }
+}

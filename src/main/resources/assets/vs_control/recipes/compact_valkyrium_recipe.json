@@ -3,19 +3,21 @@
     
     "pattern":
     [
-        "D"
+        "DDD",
+        "DDD",
+        "DDD"
     ],
     
     "key":
     {
         "D": {
-            "item": "minecraft:iron_bars"
+            "item": "vs_world:valkyrium_crystal"
         }
     },
     
     "result":
     {
-        "item": "vs_control:rotation_axle",
-        "count": 3
+        "item": "vs_control:compacted_valkyrium",
+        "count": 1
     }
 }

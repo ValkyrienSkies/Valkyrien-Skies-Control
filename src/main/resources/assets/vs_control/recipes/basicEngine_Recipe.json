@@ -1,0 +1,52 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "ICC",
+        "IDD",
+        "ICC"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": [
+            {
+                "item": "minecraft:planks",
+                "data": 0
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 1
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 2
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 3
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 4
+            },
+            {
+                "item": "minecraft:planks",
+                "data": 5
+            }
+        ],
+        "D": {
+            "item": "minecraft:piston"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:basic_engine",
+        "count": 4
+    }
+}

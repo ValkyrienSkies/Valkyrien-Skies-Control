@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "ICC",
+        "IDD",
+        "ICC"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "C": {
+            "item": "minecraft:cobblestone"
+        },
+        "D": {
+            "item": "minecraft:piston"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:advanced_engine",
+        "count": 4
+    }
+}

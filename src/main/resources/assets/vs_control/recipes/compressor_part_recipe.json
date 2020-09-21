@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "IDI",
+        "DED",
+        "IDI"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:gold_ingot"
+        },
+        "E": {
+            "item": "minecraft:piston"
+        },
+        "D": {
+            "item": "vs_world:valkyrium_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:valkyrium_compressor_part",
+        "count": 1
+    }
+}

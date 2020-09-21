@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "ICI",
+        "CDC",
+        "ICI"
+    ],
+    
+    "key":
+    {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "D": {
+            "item": "minecraft:furnace"
+        },
+        "C": {
+            "item": "minecraft:redstone"
+        }
+    },
+    
+    "result":
+    {
+        "item": "vs_control:valkyrium_engine_part",
+        "count": 1
+    }
+}

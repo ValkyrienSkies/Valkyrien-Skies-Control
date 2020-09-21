@@ -124,66 +124,6 @@ public class ValkyrienSkiesControl {
 		INSTANCE.physicsCore = new ItemPhysicsCore();
 	}
 
-    public void registerRecipes() {
-		addEngineRecipe(INSTANCE.vsControlBlocks.basicEngine, Blocks.PLANKS);
-		addEngineRecipe(INSTANCE.vsControlBlocks.advancedEngine, Blocks.STONE);
-		addEngineRecipe(INSTANCE.vsControlBlocks.advancedEngine, Blocks.COBBLESTONE);
-		addEngineRecipe(INSTANCE.vsControlBlocks.eliteEngine, Items.IRON_INGOT);
-		addEngineRecipe(INSTANCE.vsControlBlocks.ultimateEngine, Blocks.OBSIDIAN);
-		addEngineRecipe(INSTANCE.vsControlBlocks.redstoneEngine, Blocks.REDSTONE_BLOCK);
-        Item relayWireIngot = Items.IRON_INGOT;
-        // TODO: Code to check for copper and set relayWireIngot
-
-        addShapedRecipe(INSTANCE.vsControlBlocks.physicsInfuser, 1,
-                "IEI",
-                "ODO",
-                "IEI",
-                'E', Items.ENDER_PEARL,
-                'D', Items.DIAMOND,
-                'O', Item.getItemFromBlock(Blocks.OBSIDIAN),
-                'I', Items.IRON_INGOT);
-
-        addShapedRecipe(INSTANCE.relayWire, 4, // 1 per copper/iron ingot
-            " I ",
-            "ISI",
-            " I ",
-            'I', relayWireIngot,
-            'S', Items.STICK);
-
-        addVsWorldRecipes();
-    }
-
-    public void addVsWorldRecipes() {
-        addShapedRecipe(INSTANCE.vanishingWire, 8,
-            "WWW",
-            "WVW",
-            "WWW",
-            'W', INSTANCE.relayWire,
-            'V', ValkyrienSkiesWorld.INSTANCE.valkyriumCrystal);
-
-        addShapedRecipe(INSTANCE.vsControlBlocks.compactedValkyrium, 1,
-            "VVV",
-            "VVV",
-            "VVV",
-            'V', ValkyrienSkiesWorld.INSTANCE.valkyriumCrystal);
-
-        addShapedRecipe(INSTANCE.vsControlBlocks.valkyriumEnginePart, 1,
-            "IVI",
-            "VFV",
-            "IVI",
-            'I', Items.IRON_INGOT,
-            'F', Item.getItemFromBlock(Blocks.FURNACE),
-            'V', ValkyrienSkiesWorld.INSTANCE.valkyriumCrystal);
-
-        addShapedRecipe(INSTANCE.vsControlBlocks.valkyriumCompressorPart, 1,
-            "GVG",
-            "VFV",
-            "GVG",
-            'G', Items.GOLD_INGOT,
-            'F', Item.getItemFromBlock(Blocks.PISTON),
-            'V', ValkyrienSkiesWorld.INSTANCE.valkyriumCrystal);
-    }
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log.debug("Initializing configuration.");
@@ -203,7 +143,6 @@ public class ValkyrienSkiesControl {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-		registerRecipes();
 		registerMultiblocks();
         registerTileEntities();
         registerCapabilities();
@@ -257,43 +196,8 @@ public class ValkyrienSkiesControl {
             ImplCapabilityLastRelay::new);
     }
 
-    public void addShapedRecipe(ItemStack output, Object... params) {
-		ResourceLocation location = getNameForRecipe(output);
-		CraftingHelper.ShapedPrimer primer = CraftingHelper.parseShaped(params);
-		ShapedRecipes recipe = new ShapedRecipes(
-			output.getItem().getRegistryName().toString(),
-			primer.width, primer.height, primer.input, output);
-		recipe.setRegistryName(location);
-		GameData.register_impl(recipe);
-	}
 
-	public void addShapedRecipe(Item output, int outputCount, Object... params) {
-		addShapedRecipe(new ItemStack(output, outputCount), params);
-	}
-	public void addShapedRecipe(Block output, int outputCount, Object... params) {
-		addShapedRecipe(new ItemStack(output, outputCount), params);
-	}
 
-	// Engine recipe helpers
-	public void addEngineRecipe(Block output, Item type) {
-		addShapedRecipe(output, 4,
-			"I##",
-			"IPP",
-			"I##",
-			'#', type,
-			'P', Item.getItemFromBlock(Blocks.PISTON),
-			'I', Items.IRON_INGOT);
-	}
-
-	public void addEngineRecipe(Block output, Block type) {
-		addEngineRecipe(output, Item.getItemFromBlock(type));
-	}
-
-	// If a recipe already exists, increment number
-	/* eg:
-	  vs_control:item_0
-	  vs_control:item_1
-	*/
 	private static ResourceLocation getNameForRecipe(ItemStack output) {
 		ResourceLocation baseLoc = new ResourceLocation(MOD_ID, output.getItem().getRegistryName().getPath());
 		ResourceLocation recipeLoc = baseLoc;
