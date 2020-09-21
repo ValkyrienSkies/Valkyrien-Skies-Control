@@ -33,7 +33,7 @@ public class TileEntityGyroscopeStabilizer extends TileEntity {
 
         // System.out.println(angleBetween);
 
-        return torqueDir.mul(VSControlConfig.gyroscopeMaxTorque * torquePowerFactor * physicsCalculations
+        return torqueDir.mul(VSControlConfig.stabilizerMaxTorque * torquePowerFactor * physicsCalculations
             .getPhysicsTimeDeltaPerPhysTick() * -1D);
     }
 

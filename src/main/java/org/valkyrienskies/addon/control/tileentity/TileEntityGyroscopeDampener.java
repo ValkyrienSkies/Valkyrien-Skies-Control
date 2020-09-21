@@ -4,14 +4,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import org.joml.Vector3d;
 import org.joml.Vector3dc;
+import org.valkyrienskies.addon.control.config.VSControlConfig;
 import org.valkyrienskies.mod.common.physics.PhysicsCalculations;
 import valkyrienwarfare.api.TransformType;
 
 public class TileEntityGyroscopeDampener extends TileEntity {
 
     private static final Vector3dc GRAVITY_UP = new Vector3d(0, 1, 0);
-    // 300,000 newton-meters maximum of torque.
-    private double maximumTorque = 10000;
 
     public Vector3dc getTorqueInGlobal(PhysicsCalculations physicsCalculations, BlockPos pos) {
         Vector3d shipLevelNormal = new Vector3d(GRAVITY_UP);
@@ -31,9 +30,9 @@ public class TileEntityGyroscopeDampener extends TileEntity {
         Vector3d dampingTorqueWithRespectToInertia = physicsCalculations.getPhysMOITensor().transform(dampingTorque);
 
         double dampingTorqueRespectMagnitude = dampingTorqueWithRespectToInertia.length();
-        if (dampingTorqueRespectMagnitude > maximumTorque) {
+        if (dampingTorqueRespectMagnitude > VSControlConfig.dampenerMaxTorque) {
             dampingTorqueWithRespectToInertia
-                .mul(maximumTorque / dampingTorqueRespectMagnitude);
+                .mul(VSControlConfig.dampenerMaxTorque / dampingTorqueRespectMagnitude);
             // System.out.println("yee");
         }
 

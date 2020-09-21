@@ -39,9 +39,13 @@ public class VSControlConfig extends VSConfigTemplate {
     })
     public static double compactedValkyriumLift = 200000;
 
-    @Config.Name("Gyroscope Max Torque")
+    @Config.Name("Gyroscope Stabilizer Max Torque")
     @Config.Comment("Max torque in newton-meters")
-    public static double gyroscopeMaxTorque = 15000000;
+    public static double stabilizerMaxTorque = 15000000;
+
+    @Config.Name("Gyroscope Dampener Max Torque")
+    @Config.Comment("Max torque in newton-meters")
+    public static double dampenerMaxTorque = 10000;
 
     @Config.Name("Valkyrium Compressor Max Height")
     @Config.Comment("Valkyrium Compressor efficiency linearly decreases until it reaches 0 at this height")
