@@ -78,12 +78,7 @@ public abstract class TileEntityNodePilotableImpl extends BasicNodeTileEntity im
 
     @Override
     public final PhysicsObject getParentPhysicsEntity() {
-        Optional<PhysicsObject> physicsObject = ValkyrienUtils.getPhysoManagingBlock(world, pos);
-        if (physicsObject.isPresent()) {
-            return physicsObject.get();
-        } else {
-            return null;
-        }
+        return ValkyrienUtils.getPhysoManagingBlock(world, pos).orElse(null);
     }
 
     // Always call this before setting the pilotPlayerEntity to equal newPilot
