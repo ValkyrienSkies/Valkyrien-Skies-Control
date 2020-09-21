@@ -1,24 +1,17 @@
 package org.valkyrienskies.addon.control;
 
-import lombok.val;
 import net.minecraft.block.Block;
 import net.minecraft.command.ServerCommandManager;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -29,7 +22,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.registries.GameData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.valkyrienskies.addon.control.block.multiblocks.*;
@@ -54,9 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mod(
-    name = ValkyrienSkiesControl.MOD_NAME,
     modid = ValkyrienSkiesControl.MOD_ID,
-    version = ValkyrienSkiesControl.MOD_VERSION,
     dependencies = "required-after:" + ValkyrienSkiesMod.MOD_ID + ";required-after:" + ValkyrienSkiesWorld.MOD_ID + ";"
 )
 @Mod.EventBusSubscriber(modid = ValkyrienSkiesControl.MOD_ID)
@@ -67,8 +57,6 @@ public class ValkyrienSkiesControl {
 
     // MOD INFO CONSTANTS
     public static final String MOD_ID = "vs_control";
-    public static final String MOD_NAME = "Valkyrien Skies Control";
-    public static final String MOD_VERSION = ValkyrienSkiesMod.MOD_VERSION;
 
     public static SimpleNetworkWrapper controlGuiNetwork;
 

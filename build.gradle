@@ -16,7 +16,13 @@ plugins {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = 'git rev-parse HEAD'.execute().text.substring(0, 10) // git hash  
+//determine the version
+if (project.hasProperty('CustomReleaseVersion')) {
+    version = project.property('CustomReleaseVersion')
+} else {
+    version = "1.0.0+" + ('git rev-parse HEAD'.execute().text.substring(0, 10))
+}
+
 group = "org.valkyrienskies.addon"
 archivesBaseName = "vs-control"
 
