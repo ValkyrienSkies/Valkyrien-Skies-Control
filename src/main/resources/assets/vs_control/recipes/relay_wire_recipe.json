@@ -1,13 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
-    
+
     "pattern":
     [
-        " I ",
+        "SIS",
         "ICI",
-        " I "
+        "SIS"
     ],
-    
+
     "key":
     {
         "I": {
@@ -15,9 +15,12 @@
         },
         "C": {
             "item": "minecraft:redstone"
+        },
+        "S": {
+            "item": "minecraft:stick"
         }
     },
-    
+
     "result":
     {
         "item": "vs_control:relay_wire",
