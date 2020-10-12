@@ -41,9 +41,9 @@ public class ImplRotationNodeWorld implements IRotationNodeWorld {
         this.queuedTasks = new ConcurrentLinkedQueue<>();
 
         ((WorldServerShipManager) ((IHasShipManager) parent.getWorld()).getManager())
-                .getPhysicsThread().addRecurringTask(this::processTorquePhysics);
+                .getPhysicsLoop().addRecurringTask(this::processTorquePhysics);
         ((WorldServerShipManager) ((IHasShipManager) parent.getWorld()).getManager())
-                .getPhysicsThread().addRecurringTask(physTimeDelta -> processQueuedTasks());
+                .getPhysicsLoop().addRecurringTask(physTimeDelta -> processQueuedTasks());
     }
 
     public ImplRotationNodeWorld(@Nonnull World parentWorld) {
@@ -53,9 +53,9 @@ public class ImplRotationNodeWorld implements IRotationNodeWorld {
         this.queuedTasks = new ConcurrentLinkedQueue<>();
 
         ((WorldServerShipManager) ((IHasShipManager) parentWorld).getManager())
-                .getPhysicsThread().addRecurringTask(this::processTorquePhysics);
+                .getPhysicsLoop().addRecurringTask(this::processTorquePhysics);
         ((WorldServerShipManager) ((IHasShipManager) parentWorld).getManager())
-                .getPhysicsThread().addRecurringTask(physTimeDelta -> processQueuedTasks());
+                .getPhysicsLoop().addRecurringTask(physTimeDelta -> processQueuedTasks());
     }
 
     @Override

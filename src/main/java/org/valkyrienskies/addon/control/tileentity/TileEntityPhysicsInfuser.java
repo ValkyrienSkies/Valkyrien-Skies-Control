@@ -127,7 +127,11 @@ public class TileEntityPhysicsInfuser extends TileEntity implements ITickable, I
                 this.isTryingToDisassembleShip = true;
                 physicsObject.setPhysicsEnabled(true);
                 physicsObject.setShipAligningToGrid(this.isTryingToAlignShip);
-                physicsObject.setAttemptToDeconstructShip(this.isTryingToDisassembleShip);
+                if (this.isTryingToDisassembleShip) {
+                    physicsObject.setDeconstructState(PhysicsObject.DeconstructState.DECONSTRUCT_NORMAL);
+                } else {
+                    physicsObject.setDeconstructState(PhysicsObject.DeconstructState.NOT_DECONSTRUCTING);
+                }
             }
 
             // Send any updates to clients
@@ -302,7 +306,11 @@ public class TileEntityPhysicsInfuser extends TileEntity implements ITickable, I
                 PhysicsObject physicsObject = optionalPhysicsObject.get();
                 physicsObject.setPhysicsEnabled(this.isPhysicsEnabled);
                 physicsObject.setShipAligningToGrid(this.isTryingToAlignShip);
-                physicsObject.setAttemptToDeconstructShip(this.isTryingToDisassembleShip);
+                if (this.isTryingToDisassembleShip) {
+                    physicsObject.setDeconstructState(PhysicsObject.DeconstructState.DECONSTRUCT_NORMAL);
+                } else {
+                    physicsObject.setDeconstructState(PhysicsObject.DeconstructState.NOT_DECONSTRUCTING);
+                }
             }
         }
     }
