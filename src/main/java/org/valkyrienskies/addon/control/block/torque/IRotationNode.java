@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Tuple;
@@ -119,10 +120,14 @@ public interface IRotationNode extends Comparable<IRotationNode> {
         for (EnumFacing facing : EnumFacing.values()) {
             if (isConnectedToSide(facing)) {
                 Optional<IRotationNode> tileOnSide = getTileOnSide(facing);
-                if (!tileOnSide.isPresent()) {
-                    throw new IllegalStateException("I thought this was impossible!");
+
+                if (tileOnSide.isPresent()) {
+                    connectedTiles.add(new Tuple<>(tileOnSide.get(), facing));
+                } else {
+                    System.err.println("This is a race condition that should be impossible but isn't" +
+                        "so we're logging this annoying message instead of crashing the game. Stuff might be broken " +
+                        "idk");
                 }
-                connectedTiles.add(new Tuple<>(tileOnSide.get(), facing));
             }
         }
         return connectedTiles;
